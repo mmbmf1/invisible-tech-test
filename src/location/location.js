@@ -2,6 +2,7 @@ require("dotenv").config();
 const config = require("../config");
 const fetch = require("node-fetch");
 
+//format the location API query
 const formatParams = (params) => {
   const queryItems = Object.keys(params).map(
     (key) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`
@@ -9,6 +10,8 @@ const formatParams = (params) => {
   return queryItems.join("&");
 };
 
+
+//fetch location lat/lon
 const searchLocation = async (location) => {
   const geoKey = config.LOCATION_KEY;
   const geoUrl = config.LOCATION_URL;
